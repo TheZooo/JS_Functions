@@ -1,6 +1,6 @@
 var widthInput = prompt("Width");
 var heightInput = prompt("Height");
-if (widthInput >= 0 || heightInput >= 0) {} else {
+if (widthInput >= 0 && heightInput >= 0) {} else {
   window.alert("Invalid Input");
   widthInput = prompt("Width");
   heightInput = prompt("Height");
