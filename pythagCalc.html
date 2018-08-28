@@ -1,0 +1,24 @@
+<htmL>
+  <head>
+    <script>
+    function pythag() {
+      var a = prompt("First Number");
+      var b = prompt("Second Number");
+      if (a >= 0) {} else {
+        window.alert("Invalid Input");
+        a = prompt("First Number");
+        b = prompt("Second Number");
+      }
+      var asq = a ** 2;
+      var bsq = b ** 2;
+      var c = Math.sqrt(asq + bsq);
+      window.alert(c.toFixed(2) + " " + "unit");
+    }
+    </script>
+  </head>
+  <body>
+    <button onclick="pythag()">
+      Click for Pythogorem
+    </button>
+  </body>
+</htmL>
