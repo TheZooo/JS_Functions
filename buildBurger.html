@@ -7,11 +7,16 @@
         bun: ["Plain", "Sesame Seed", "Whole Wheat"],
         cheese: ["Melted", "Cheddar", "American", "Mozzarella"],
         grown: ["Lettuce", "Tomato", "Pickles", "Cucumber"],
-        condiment: ["Mayo", "Ketchup", "Mustard", "Relish"],
+        mayo: false,
+        ketchup: false,
+        mustard: false,
+        relish: false,
         price: 0,
         qty: 0
       }
       var arr = [];
+      
+      
       function burg() {
         var x = Math.floor(Math.random() * custBurger.meat.length);
         arr.push(x);
@@ -21,20 +26,52 @@
         arr.push(z);
         var w = Math.floor(Math.random() * custBurger.grown.length);
         arr.push(w);
-        var m = Math.floor(Math.random() * custBurger.condiment.length);
-        arr.push(m);
-        window.alert(custBurger.meat[x] + " " + "Burger with" + " " + custBurger.bun[y]+ " " + "Bun," + " " + custBurger.cheese[z] + " " + "Cheese," + " " + custBurger.grown[w] + " " + "and" + " " + custBurger.condiment[m]);
-        window.alert("That'll be" + " " + (x + y + z + w + 2) + "$");
+        var m = prompt("Do you want mayo, ketchup, mustard, or relish?");
+        m.toLowerCase();
+        if (m === "mayo") {
+          custBurger.mayo = true;
+          m = "and Mayo";
+        }
+        else if (m === "ketchup") {
+          custBurger.ketchup = true;
+          m = "and Ketchup";
+        }
+        else if (m === "mustard") {
+          custBurger.mustard = true;
+          m = "and Mustard";
+        }
+        else if (m === "relish") {
+          custBurger.relish = true;
+          m = "and Relish";
+        }
+        else if (m != "mayo", "ketchup", "mustard", "relish"){
+          window.alert("Well then no sauce for you");
+          m = "";
+        }
+        else {
+          window.alert("Wait what");
+        }
+        document.getElementById("burgerFinal").innerHTML = (custBurger.meat[x] + " " + "Burger with" + " " + custBurger.bun[y]+ " " + "Bun," + " " + custBurger.cheese[z] + " " + "Cheese," + " " + custBurger.grown[w] + " " + m);
+        document.getElementById("burgerCost").innerHTML = "That'll be" + " " + (x + y + z + w + 2) + "$";
+        document.getElementById("noBurg").visibility = "visible";
       }
     </script>
     <style>
-      button {
+      #order {
         font-size:100px;
+      }
+      #noBurg {
+        font-size:30px;
+        visibility:hidden;
+      }
+      p {
+        font-size:30px;
       }
     </style>
   </head>
   <body>
-    <button onclick = "burg()">Order a Burger</button>
-    
+    <button id = "order" onclick = "burg()">Order a Burger</button>
+    <p id = "burgerFinal"></p>
+    <p id = "burgerCost"></p>
   </body>
 </html>
