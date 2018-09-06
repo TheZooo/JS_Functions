@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script>
+      var custBurger = {
+        name: "Your Burger",
+        meat: ["Beef", "Pork", "Chicken", "Ox"],
+        bun: ["Plain", "Sesame Seed", "Whole Wheat"],
+        cheese: ["Melted", "Cheddar", "American", "Mozzarella"],
+        grown: ["Lettuce", "Tomato", "Pickles", "Cucumber"],
+        condiment: ["Mayo", "Ketchup", "Mustard", "Relish"],
+        price: 0,
+        qty: 0
+      }
+      var arr = [];
+      function burg() {
+        var x = Math.floor(Math.random() * custBurger.meat.length);
+        arr.push(x);
+        var y = Math.floor(Math.random() * custBurger.bun.length);
+        arr.push(y);
+        var z = Math.floor(Math.random() * custBurger.cheese.length);
+        arr.push(z);
+        var w = Math.floor(Math.random() * custBurger.grown.length);
+        arr.push(w);
+        var m = Math.floor(Math.random() * custBurger.condiment.length);
+        arr.push(m);
+        window.alert(custBurger.meat[x] + " " + "Burger with" + " " + custBurger.bun[y]+ " " + "Bun," + " " + custBurger.cheese[z] + " " + "Cheese," + " " + custBurger.grown[w] + " " + "and" + " " + custBurger.condiment[m]);
+        window.alert("That'll be" + " " + (x + y + z + w + 2) + "$");
+      }
+    </script>
+    <style>
+      button {
+        font-size:100px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick = "burg()">Order a Burger</button>
+    
+  </body>
+</html>
